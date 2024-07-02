@@ -9,11 +9,12 @@ function getDirname(metaUrl) {
 
 const __dirname = getDirname(import.meta.url);
 
-const COMPONENTS_DIRS = [
-  path.join(__dirname, "..", "src", "app", "data-table-components"),
-  path.join(__dirname, "..", "src", "components", "ui"),
-  path.join(__dirname, "..", "src", "components"),
-];
+// const COMPONENTS_DIRS = [
+//   path.join(__dirname, "..", "src", "app", "data-table-components"),
+//   path.join(__dirname, "..", "src", "components", "ui"),
+//   path.join(__dirname, "..", "src", "components"),
+// ];
+const COMPONENTS_DIRS = [path.join(__dirname, "..", "src", "app", "Form")];
 const OUTPUT_DIR = path.join(__dirname, "..", "public", "code-snippets");
 
 function readFilesRecursively(dir) {
@@ -47,7 +48,7 @@ function generateCodeSnippets() {
       const relativePath = path.relative(path.join(__dirname, ".."), file);
       const outputFilePath = path.join(
         OUTPUT_DIR,
-        `${relativePath.replace(/[\\\/]/g, "_")}.json`,
+        `${relativePath.replace(/[\\\/]/g, "_")}.json`
       );
 
       const outputDir = path.dirname(outputFilePath);
@@ -57,7 +58,7 @@ function generateCodeSnippets() {
 
       fs.writeFileSync(
         outputFilePath,
-        JSON.stringify({ content: fileContent }, null, 2),
+        JSON.stringify({ content: fileContent }, null, 2)
       );
     });
   });

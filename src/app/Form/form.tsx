@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,8 +25,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { IndianRupee, Plus } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { cn } from "@/lib/utils";
 
+// ****** //
 // Get the current date and time in the required format
 const currentDate = new Date();
 
@@ -101,6 +100,7 @@ export function ExpenseForm() {
             Quickly add your income or expense details.
           </p>
         </div>
+        {/* Amount */}
         <FormField
           control={form.control}
           name="amount"
@@ -113,7 +113,7 @@ export function ExpenseForm() {
                   <Input
                     type="number"
                     placeholder="00"
-                    className=""
+                    className="pl-6"
                     {...field}
                     onChange={(event) => field.onChange(+event.target.value)}
                   />
@@ -124,6 +124,7 @@ export function ExpenseForm() {
             </FormItem>
           )}
         />
+        {/* Label */}
         <FormField
           control={form.control}
           name="label"
@@ -170,18 +171,14 @@ export function ExpenseForm() {
             </FormItem>
           )}
         />
-        {/*  */}
+        {/* Category*/}
         <FormField
           control={form.control}
           name="category"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Category</FormLabel>
-              <Select
-                className="capitalize"
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-              >
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue
@@ -203,7 +200,7 @@ export function ExpenseForm() {
             </FormItem>
           )}
         />
-
+        {/* Note */}
         <FormField
           control={form.control}
           name="note"
@@ -217,11 +214,11 @@ export function ExpenseForm() {
                   {...field}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
+        {/* Date & Time */}
         <FormField
           control={form.control}
           name="dateTime"

@@ -1,5 +1,5 @@
 import React from "react";
-import MainPage from "./main-page";
+import MainPage from "./instructions";
 
 type Props = {};
 

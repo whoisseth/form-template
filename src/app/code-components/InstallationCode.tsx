@@ -17,7 +17,7 @@ const InstallationCode: React.FC<InstallationCodeProps> = ({ code }) => {
   };
 
   return (
-    <div className="relative flex max-w-[800px] items-center rounded-lg border bg-secondary p-4 py-3">
+    <div className="relative flex w-full max-w-[800px] items-center rounded-lg border bg-secondary p-4 py-3">
       <pre className="whitespace-pre-wrap font-mono text-sm">{code}</pre>
       <CopyToClipboard text={code} onCopy={handleCopy}>
         <Button
@@ -33,4 +33,3 @@ const InstallationCode: React.FC<InstallationCodeProps> = ({ code }) => {
 };
 
 export default InstallationCode;
-

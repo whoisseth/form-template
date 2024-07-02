@@ -24,7 +24,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
   customFileSrc,
   codeSnippet,
   title,
-  step,
+  step
 }) => {
   const [code, setCode] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
@@ -42,7 +42,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
         setLoading(true);
         try {
           const res = await fetch(
-            `/code-snippets/${fileSrc.replace(/[\\\/]/g, "_")}.json`,
+            `/code-snippets/${fileSrc.replace(/[\\\/]/g, "_")}.json`
           );
           if (res.ok) {
             const data = await res.json();
@@ -64,7 +64,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
   }, [fileSrc, codeSnippet]);
 
   return (
-    <div>
+    <div className="w-full">
       <p className="flex gap-1 text-lg">
         {step && <span>Step {step}.</span>}
         <span>{title}</span>
@@ -73,7 +73,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
         <FileCode size={16} />
         <code className=""> {customFileSrc ?? fileSrc}</code>
       </p>
-      <div className="relative flex flex-col gap-1 rounded-lg">
+      <div className="relative flex flex-col gap-1 rounded-lg w-full">
         <CopyToClipboard text={code} onCopy={handleCopy}>
           <Button
             variant={"outline"}
@@ -100,7 +100,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
               overflow: "auto",
               whiteSpace: "pre-wrap",
               wordBreak: "break-all",
-              padding: "1rem",
+              padding: "1rem"
             }}
             style={resolvedTheme === "dark" ? dracula : prism}
             language={language}
