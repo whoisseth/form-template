@@ -78,7 +78,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
           <Button
             variant={"outline"}
             size={"icon"}
-            className="absolute right-2 top-4 flex h-8 gap-1 opacity-70"
+            className="absolute right-20 top-4 flex h-8 gap-1 opacity-70"
           >
             {copied ? <Check size={16} /> : <Copy size={16} />}
           </Button>
