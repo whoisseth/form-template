@@ -42,6 +42,19 @@ const installationCommands = [
     command: "npm install lucide-react"
   }
 ];
+const layoutSnippets = `import { Toaster } from "@/components/ui/toaster"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}`;
 
 export default function Instructions() {
   return (
@@ -74,11 +87,16 @@ export default function Instructions() {
         </Link>
         <div className=" lg:flex w-fit flex-col gap-3 divide-y hidden  ">
           <h2 className="text-2xl font-semibold"> Code Files</h2>
-
           <CodeSnippet
             title="form.tsx"
             language={"tsx"}
             fileSrc={"src/app/Form/form.tsx"}
+          />
+          <CodeSnippet
+            title="layout.tsx - for toast"
+            language={"tsx"}
+            customFileSrc="src/app/layout.tsx"
+            codeSnippet={layoutSnippets}
           />
         </div>
       </div>
